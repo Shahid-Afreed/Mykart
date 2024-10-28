@@ -6,13 +6,17 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    /* background-color: #000000; */
+    /* background-image: url('mykart-logo.png'); */
 }
+
 
 .navbar
 {
     display: flex;
     align-items: center;
     padding: 20px;
+
 }
 
 nav{
@@ -29,22 +33,24 @@ nav ul li{
 }
 a{
     text-decoration: none;
-    color: #555;
+    color: rgb(0, 158, 0);
 }
 p{
-    color: #555;
+    color: white;
 }
 .container{
-    max-width: 1300px;
+    max-width: 100%;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    background-color: black;
 }
 .row{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    margin-left: 40px;
 }
 .col-2{
     flex-basis: 50%;
@@ -58,10 +64,11 @@ p{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
+    color: rgb(0, 158, 0);
 }
 .btn{
     display: inline-block;
-    background: #ff523b;
+    background: green;
     color: white;
     padding: 8px 30px;
     margin: 30px 0;
@@ -84,15 +91,19 @@ p{
     flex-basis: 30%;
     min-width: 250px;
     margin-bottom: 30px;
+    padding: 10px;
 }
 .col-3 img{
-    width: 100%;
+    width: 60%;
 }
 .small-container{
-    max-width: 1080px;
+    max-width: 100%;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    /* background-color: black; */
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
 }
 .col-4{
     flex-basis: 25%;
@@ -102,19 +113,28 @@ p{
     transition: transform 0.5s;
 }
 .col-4 img{
-    width: 100%;
+    width: 80%;
+    height: 350px;
+    border: 1px solid white;
+    box-shadow: 20px 5px 25px  #ff523b; /* Add shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
 }
+
+.col-4 img:hover {
+    box-shadow: 10px 8px 25px green; /* Darker shadow on hover */
+}
+
 .title{
     text-align: center;
     margin: 0 auto 80px;
     position: relative;
     line-height: 60px;
-    color: #555;
+    color: green;
 }
 .title::after{
     content: '';
-    background: #ff523b;
-    width: 80px;
+    background: white;
+    width: 120px;
     height: 5px;
     border-radius: 5px;
     position: absolute;
@@ -123,14 +143,15 @@ p{
     transform: translateX(-50%);
 }
 h4{
-    color: #555;
+    color: #ff523b;
     font-weight: normal;
+    margin-top: 20px;
 }
 .col-4 p{
     font-size: 14px;
 }
 .rating .fa{
-    color: #ff523b;
+    color: green;
 }
 .col-4:hover{
     transform: translateY(-5px);
@@ -222,7 +243,7 @@ small{
     text-align: center;
 }
 .footer-col-2 img{
-    width: 180px;
+    width: 140px;
     margin-bottom: 20px;
 }
 .footer-col-3, .footer-col-4{
@@ -256,17 +277,20 @@ ul{
 /* All Products */
 .row-2{
     justify-content: space-between;
-    margin: 100px auto 50px;
+    margin: 0px auto 50px;
 }
-select{
-    border: 1px solid #ff523b;
+select {
+    border: 1px solid #ffffff;
     padding: 5px;
+    color: #ff523b;
+    background-color: #000000;
 }
 select:focus{
     outline: none;
 }
 .page-btn{
-    margin: 0 auto 80px;
+    margin: 40px auto 0px;
+    padding-bottom: 40px;
 }
 .page-btn span{
     display: inline-block;
@@ -285,7 +309,7 @@ select:focus{
 
 /* Single Product */
 .single-product{
-    margin-top: 80px;
+    /* margin-top: 80px; */
 }
 .single-product .col-2 img{
     padding: 0;
@@ -382,8 +406,8 @@ th:last-child{
 
 /* Account page */
 .account-page{
-    padding: 50px 0;
-    background: radial-gradient(#fff, #ffd6d6);
+    /* padding: 50px 0;
+    background: radial-gradient(#fff, #ffd6d6); */
 }
 .message-container{
     background: #f8f8f8;
@@ -404,7 +428,7 @@ th:last-child{
 }
 
 .form-container{
-    background: #fff;
+    background: #000000;
     width: 300px;
     height: 500px;
     position: relative;
@@ -413,12 +437,14 @@ th:last-child{
     margin: auto;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
 .form-container span{
     font-weight: bold;
     padding: 0 10px;
-    color: #555;
+    color: #ffffff;
     cursor: pointer;
     width: 100px;
     display: inline-block;
@@ -467,6 +493,63 @@ form a{
     transform: translateX(100px);
     transition: transform 1s;
 }
+
+/* MY cSS */
+.all-products-text{
+    color: green;
+}
+
+.categories-label{
+    color: #ff523b;
+    align-items: center;
+}
+
+.product-detail-text{
+    color: #ff523b;
+}
+
+.categories {
+    overflow: hidden; /* Hide overflow for the scrolling effect */
+    position: relative; /* Position relative for absolute children */
+    width: 100%; /* Ensure it takes full width */
+}
+
+.small-container {
+    width: 100%; /* Ensure it takes full width */
+}
+
+.scrolling-images {
+    display: flex; /* Use flexbox for horizontal alignment */
+    animation: scroll 25s linear infinite; /* Animation for scrolling */
+}
+
+.scrolling-images .col-3 {
+    flex: 0 0 auto; /* Prevent images from shrinking */
+    margin-right: 20px; /* Space between images (optional) */
+    position: relative; /* For absolute positioning of the image */
+}
+
+.zoom-image {
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.zoom-image:hover {
+    transform: scale(1.5); /* Scale up the image on hover */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0); /* Start from the left */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left */
+    }
+}
+
+
+
 
 /* Media query for menu */
 @media only screen and (max-width: 800px){

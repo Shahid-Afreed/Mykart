@@ -4,39 +4,51 @@
 
 <div class="small-container">
     <div class="row row-2">
-        <h2>All Products</h2>
-        <select>
-            <option>Default Sort</option>
-            <option>Sort By Price</option>
-            <option>Sort By Popularity</option>
-            <option>Sort By Rating</option>
-            <option>Sort By Sale</option>
-        </select>
+        <h2 class="all-products-text">All Products</h2>
+        <form method="GET" action="{% url 'product_list' %}">
+            <select name="sort" onchange="this.form.submit()">
+                <option value="default" {% if sort_option == 'default' %}selected{% endif %}>Default Sort</option>
+                <option value="Price low to high" {% if sort_option == 'Price low to high' %}selected{% endif %}>Price low to high</option>
+                <option value="Price high to low" {% if sort_option == 'Price high to low' %}selected{% endif %}>Price high to low</option>
+                {% comment %} <option value="Sort By Rating" {% if sort_option == 'Sort By Rating' %}selected{% endif %}>Sort By Rating</option>
+                <option value="Sort By Sale" {% if sort_option == 'Sort By Sale' %}selected{% endif %}>Sort By Sale</option> {% endcomment %}
+            </select>
+        </form>
     </div>
 
-    
-    {% for product_tags in products|tags:4 %}
-        
-    <div class="row">
-        {% for product in product_tags %}
-        
-        <div class="col-4">
-            <a href="{% url 'product_details' product.id %}">   <img src=" {{ product.image.url }}"> </a>
-
-            <h4>{{ product.title }}</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>{{ product.price }}</p>
+    {% for product_tags in products|tags:3 %}
+        <div class="row">
+            {% for product in product_tags %}
+                <div class="col-4">
+                    <a href="{% url 'product_details' product.id %}"><img src="{{ product.image.url }}"></a>
+                    <h4>{{ product.title }}</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>INR {{ product.price }}</p>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-
     {% endfor %}
+    
+    <!-- Pagination controls (optional) -->
+    <div class="pagination">
+        <span class="step-links">
+           
+
+
+            {% if products.has_next %}
+                <a href="?page={{ products.next_page_number }}&sort={{ sort_option }}"></a>
+                <a href="?page={{ products.paginator.num_pages }}&sort={{ sort_option }}"></a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
   
     <div class="page-btn">
 
